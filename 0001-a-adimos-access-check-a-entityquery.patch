@@ -1,16 +1,3 @@
-From 5e55bb16beb046f66b4ab288dea59318c463213b Mon Sep 17 00:00:00 2001
-From: pacorodriguezcar <32145409+pacorodriguezcar@users.noreply.github.com>
-Date: Thu, 31 Aug 2023 11:33:35 +0200
-Subject: [PATCH] =?UTF-8?q?a=C3=B1adimos=20access=20check=20a=20entityquer?=
- =?UTF-8?q?y?=
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-
----
- paragraphs_asymmetric_translation_widgets.module | 1 +
- 1 file changed, 1 insertion(+)
-
 diff --git a/paragraphs_asymmetric_translation_widgets.module b/paragraphs_asymmetric_translation_widgets.module
 index 77fd943..0c7b82c 100644
 --- a/paragraphs_asymmetric_translation_widgets.module
@@ -23,6 +10,3 @@ index 77fd943..0c7b82c 100644
      ->condition('langcode', $entity->language()->getId())
      ->condition('parent_id', $entity->id())
      ->condition('parent_type', $entity->getEntityTypeId())
--- 
-2.39.0.windows.1
-
