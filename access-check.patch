@@ -1,0 +1,12 @@
+diff --git a/paragraphs_asymmetric_translation_widgets.module b/paragraphs_asymmetric_translation_widgets.module
+index 77fd943..0c7b82c 100644
+--- a/paragraphs_asymmetric_translation_widgets.module
++++ b/paragraphs_asymmetric_translation_widgets.module
+@@ -104,6 +104,7 @@ function paragraphs_asymmetric_translation_widgets_entity_translation_delete(Ent
+   // Delete all paragraphs belonging to this entity and a paragraphs field that
+   // is translatable.
+   $query = \Drupal::entityQuery('paragraph')
++    ->accessCheck(TRUE)
+     ->condition('langcode', $entity->language()->getId())
+     ->condition('parent_id', $entity->id())
+     ->condition('parent_type', $entity->getEntityTypeId())
