@@ -1,0 +1,46 @@
+diff --git a/src/Plugin/Field/FieldType/FlysystemGcsCorsFile.php b/src/Plugin/Field/FieldType/FlysystemGcsCorsFile.php
+index 9bf08cc..634c310 100644
+--- a/src/Plugin/Field/FieldType/FlysystemGcsCorsFile.php
++++ b/src/Plugin/Field/FieldType/FlysystemGcsCorsFile.php
+@@ -33,15 +33,15 @@ class FlysystemGcsCorsFile extends FileItem {
+     $flysystem_settings = Settings::get('flysystem', []);
+ 
+     // Cap the upload size according to the PHP limit.
+-    $max_filesize = Bytes::toInt(Environment::getUploadMaxSize());
++    $max_filesize = Bytes::toNumber(Environment::getUploadMaxSize());
+ 
+     // If this field is using GCS, up the max upload size.
+     if (isset($flysystem_settings[$scheme]) && $flysystem_settings[$scheme]['driver'] == 'gcs') {
+-      $max_filesize = Bytes::toInt('2 GB');
++      $max_filesize = Bytes::toNumber('2 GB');
+     }
+ 
+     if (!empty($settings['max_filesize'])) {
+-      $max_filesize = min($max_filesize, Bytes::toInt($settings['max_filesize']));
++      $max_filesize = min($max_filesize, Bytes::toNumber($settings['max_filesize']));
+     }
+ 
+     // There is always a file size limit.
+diff --git a/src/Plugin/Field/FieldType/FlysystemGcsCorsImage.php b/src/Plugin/Field/FieldType/FlysystemGcsCorsImage.php
+index 577bb66..9dbd0fc 100644
+--- a/src/Plugin/Field/FieldType/FlysystemGcsCorsImage.php
++++ b/src/Plugin/Field/FieldType/FlysystemGcsCorsImage.php
+@@ -50,15 +50,15 @@ class FlysystemGcsCorsImage extends ImageItem {
+     $flysystem_settings = Settings::get('flysystem', []);
+ 
+     // Cap the upload size according to the PHP limit.
+-    $max_filesize = Bytes::toInt(Environment::getUploadMaxSize());
++    $max_filesize = Bytes::toNumber(Environment::getUploadMaxSize());
+ 
+     // If this field is using GCS, up the max upload size.
+     if (isset($flysystem_settings[$scheme]) && $flysystem_settings[$scheme]['driver'] == 'gcs') {
+-      $max_filesize = Bytes::toInt('2 GB');
++      $max_filesize = Bytes::toNumber('2 GB');
+     }
+ 
+     if (!empty($settings['max_filesize'])) {
+-      $max_filesize = min($max_filesize, Bytes::toInt($settings['max_filesize']));
++      $max_filesize = min($max_filesize, Bytes::toNumber($settings['max_filesize']));
+     }
+ 
+     // There is always a file size limit.
